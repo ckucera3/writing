@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ckucera/writing</title>
+    <link>http://ckucera.com/writing/</link>
+    <description>Recent content on ckucera/writing</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 14 May 2016 15:23:09 -0400</lastBuildDate>
+    <atom:link href="http://ckucera.com/writing/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>D3 Tips and Snippets</title>
+      <link>http://ckucera.com/writing/d3-tips/</link>
+      <pubDate>Sat, 14 May 2016 15:23:09 -0400</pubDate>
+      
+      <guid>http://ckucera.com/writing/d3-tips/</guid>
+      <description>
+
+&lt;p&gt;I enjoy working with D3, and keep a list of code snippets and notes at hand for quick reference. I&amp;rsquo;ll dump the notes here.&lt;/p&gt;
+
+&lt;h2 id=&#34;create-a-quantitative-scale:dc75fb25af22bd10d45f5c77b11cc82e&#34;&gt;Create a quantitative scale&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;// linear
+
+var scale = d3.scale.linear()
+    .domain([-1, 1])
+    .range([height, 0])
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;insert-an-element-rather-than-append:dc75fb25af22bd10d45f5c77b11cc82e&#34;&gt;Insert an element rather than append&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;selection.insert(&amp;quot;div&amp;quot;, &amp;quot;:first-child&amp;quot;); //this inserts a div before the first child of the element selected.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;change-the-width-height-of-an-svg:dc75fb25af22bd10d45f5c77b11cc82e&#34;&gt;Change the width, height of an svg&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;give-svg-a-border:dc75fb25af22bd10d45f5c77b11cc82e&#34;&gt;Give svg a border&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;
+var borderPath = svg.append(&amp;quot;rect&amp;quot;)
+    .attr(&amp;quot;x&amp;quot;, 0)
+    .attr(&amp;quot;y&amp;quot;, 0)
+    .attr(&amp;quot;height&amp;quot;, svgHeight)
+    .attr(&amp;quot;width&amp;quot;, svgWidth)
+    .style(&amp;quot;stroke&amp;quot;, bordercolor)
+    .style(&amp;quot;fill&amp;quot;, &amp;quot;none&amp;quot;)
+    .style(&amp;quot;stroke-width&amp;quot;, borderwidth);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;get-the-bounds-of-an-svg:dc75fb25af22bd10d45f5c77b11cc82e&#34;&gt;Get the bounds of an SVG&lt;/h2&gt;
+
+&lt;p&gt;You can call &lt;code&gt;.node().getBBox()&lt;/code&gt; on SVG elements to get their bounding box in terms of SVG coordinates&lt;/p&gt;
+
+&lt;h2 id=&#34;get-a-style-attribute-of-an-svg:dc75fb25af22bd10d45f5c77b11cc82e&#34;&gt;Get a style attribute of an SVG&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;selection.style(&amp;quot;attribute-name&amp;quot;)&lt;/code&gt; should do the trick.&lt;/p&gt;
+
+&lt;h2 id=&#34;basic-transition:dc75fb25af22bd10d45f5c77b11cc82e&#34;&gt;Basic transition&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-js&#34;&gt;
+selection.transition() // this transition runs from t=1s to t=3s
+    .delay(1000)
+    .duration(2000)
+  .transition() // then a delay from t=3s to t=4s
+    .duration(1000)
+  .transition() // then lastly another transition from t=4s to t=5s
+
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sublime Text Note Taking Set up for Windows</title>
+      <link>http://ckucera.com/writing/st-note-taking-setup/</link>
+      <pubDate>Sat, 14 May 2016 14:56:44 -0400</pubDate>
+      
+      <guid>http://ckucera.com/writing/st-note-taking-setup/</guid>
+      <description>
+
+&lt;p&gt;I have long searched for a note taking tool that is discrete, highly customizable, easy to toggle on/off, markdown compatible, and able to sync across devices. Eventually I settled for using the text editor Sublime Text 3, Dropbox and an AutoHotKey script. In this post, I&amp;rsquo;ll take you through the setup step-by-step.&lt;/p&gt;
+
+&lt;p&gt;Follow this guide if you want a note taking tool that:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;allows keybindings to minimize/maximize the tool&lt;/li&gt;
+&lt;li&gt;is Markdown compatible (including MathJax)&lt;/li&gt;
+&lt;li&gt;can export to PDF and HTML&lt;/li&gt;
+&lt;li&gt;has adjustable transparency&lt;/li&gt;
+&lt;li&gt;can be backed up on the cloud and used across multiple devices&lt;/li&gt;
+&lt;li&gt;can be made to &amp;lsquo;stick&amp;rsquo; to the top of a page&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;video src=&#34;http://ckucera.com/writing/writing/vid/note-taking-example-1.mp4&#34; autoplay muted loop /&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;My note taking set up&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;strong&gt;NOTE: This is a set up for windows, specifically Windows 10. It might not work for older Windows versions. For Mac and Linux users, I don&amp;rsquo;t know of an alternative to AutoHotKey, so this set up will not work for you.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;sublime-text-3:03ea86a03ea7529e2c3fd4a09c65fa53&#34;&gt;Sublime Text 3&lt;/h2&gt;
+
+&lt;p&gt;It&amp;rsquo;s a nice text editor. If you haven&amp;rsquo;t used it before, I recommend trying it out. It is fast when dealing with huge files and is very customizable with its popular &lt;a href=&#34;https://packagecontrol.io/&#34;&gt;package ecosystem&lt;/a&gt;. Other features include multiple cursors, very useful selection/find/replace key bindings, and a nice look. Isn&amp;rsquo;t it pretty? A downside is that it isn&amp;rsquo;t free or opensource. It costs money, but there&amp;rsquo;s an unlimited free trial period that you can use if unable to fork over the cash. Since using this product has helped me improve my programming workflow (and has made it more enjoyable), I do plan on paying for the program once I become profitably employed out of college.&lt;/p&gt;
+
+&lt;h2 id=&#34;autohotkey:03ea86a03ea7529e2c3fd4a09c65fa53&#34;&gt;AutoHotKey&lt;/h2&gt;
+
+&lt;p&gt;AutoHotKey (AHK) is a scripting language for Windows that allows users to create hot-keys and text macros. It&amp;rsquo;s very useful if you don&amp;rsquo;t want to mess around with batch files.&lt;/p&gt;
+
+&lt;h2 id=&#34;instructions:03ea86a03ea7529e2c3fd4a09c65fa53&#34;&gt;Instructions&lt;/h2&gt;
+
+&lt;p&gt;Now, on to the setup up guide.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Download &lt;a href=&#34;https://www.sublimetext.com/&#34;&gt;ST3&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Follow the &lt;a href=&#34;https://packagecontrol.io/installation&#34;&gt;instructions&lt;/a&gt; for installing Package Control&lt;/li&gt;
+&lt;li&gt;Install the following packages
+
+&lt;ul&gt;
+&lt;li&gt;MarkdownEditing&lt;/li&gt;
+&lt;li&gt;OmniMarkupPreviewer&lt;/li&gt;
+&lt;li&gt;Optional, but useful, packages
+
+&lt;ul&gt;
+&lt;li&gt;InsertDate&lt;/li&gt;
+&lt;li&gt;SideBarEnhancements&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Install &lt;a href=&#34;https://autohotkey.com/download/&#34;&gt;AHK&lt;/a&gt;. Test it out with whatever sample script is provided to you. When AHK is running, it should also be viewable in your task pane as an H with a green background.&lt;/li&gt;
+&lt;li&gt;Create your script.
+Here&amp;rsquo;s the AHK script I use:&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;pre&gt;&lt;code&gt;/*
+Hotkeys:
+Windows Key + N: toggles Sublime Text window
+Windows Key + space: &#39;sticks&#39; window on top of other windows -OR- &#39;unsticks&#39; the window
+Alt-W: make window less transparent
+Alt-S: make window more transparent
+*/
+
+#t:: appFlapper(&amp;quot;cmd.exe&amp;quot;)
+
+#n::    appFlapper(&amp;quot;sublime_text.exe&amp;quot;)
+appFlapper(exePath) {
+    IfWinExist, % &amp;quot;ahk_exe &amp;quot; substr(exePath, instr(exePath, &amp;quot;\&amp;quot;,, 0)+1)
+        IfWinActive
+            WinMinimize
+        else
+            WinActivate
+    else
+        Run, %exePath%
+}
+
+#InstallKeybdHook
+#SingleInstance force
+
+
+#space::
+WinGet, currentWindow, ID, A
+WinGet, ExStyle, ExStyle, ahk_id %currentWindow%
+if (ExStyle &amp;amp; 0x8)  ; 0x8 is WS_EX_TOPMOST.
+{
+    Winset, AlwaysOnTop, off, ahk_id %currentWindow%
+    SplashImage,, x0 y0 b fs12, OFF always on top.
+    Sleep, 1500
+    SplashImage, Off
+}
+else
+{
+    WinSet, AlwaysOnTop, on, ahk_id %currentWindow%
+    SplashImage,,x0 y0 b fs12, ON always on top.
+    Sleep, 1500
+    SplashImage, Off
+}
+return
+
+!w::
+WinGet, currentWindow, ID, A
+if not (%currentWindow%)
+{
+    %currentWindow% := 255
+}
+if (%currentWindow% != 255)
+{
+    %currentWindow% += 5
+    WinSet, Transparent, % %currentWindow%, ahk_id %currentWindow%
+}
+SplashImage,,w100 x0 y0 b fs12, % %currentWindow%
+SetTimer, TurnOffSI, 1000, On
+Return
+
+!s::
+SplashImage, Off
+WinGet, currentWindow, ID, A
+if not (%currentWindow%)
+{
+    %currentWindow% := 255
+}
+if (%currentWindow% != 5)
+{
+    %currentWindow% -= 5
+    WinSet, Transparent, % %currentWindow%, ahk_id %currentWindow%
+}
+SplashImage,, w100 x0 y0 b fs12, % %currentWindow%
+SetTimer, TurnOffSI, 1000, On
+Return
+
+
+TurnOffSI:
+SplashImage, off
+SetTimer, TurnOffSI, 1000, Off
+Return
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After this script is up and running, the set up should be complete.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
